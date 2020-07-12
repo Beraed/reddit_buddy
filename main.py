@@ -121,9 +121,9 @@ def frontpage_to_txt(url, user_agent):
     """
 
     timestamp = int(time.time())
-    ts_json_filename = "data/" + str(timestamp) + ".json"
-    ts_csv_filename = "data/" + str(timestamp) + ".csv"
-    ts_txt_filename = "data/" + str(timestamp) + ".txt"
+    ts_json_filename = "data/fpage" + str(timestamp) + ".json"
+    ts_csv_filename = "data/fpage" + str(timestamp) + ".csv"
+    ts_txt_filename = "data/fpage" + str(timestamp) + ".txt"
 
     url_to_json(url, ts_json_filename, user_agent)
     json_to_csv(ts_json_filename, ts_csv_filename)
