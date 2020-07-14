@@ -2,6 +2,9 @@
 
 # pylint: disable =
 
+from os import chdir
+from glob import glob
+import pandas as pdlib
 import json
 import csv
 import time
@@ -181,11 +184,18 @@ def saved_to_csv(reddit, limit=100, unsave=False):
     ts_save_filename = "data/saved" + str(timestamp) + ".csv"
     dictlist_to_csv(new_dictlist, ts_save_filename)
 
+def merge_csv(list_of_files, file_out):
+    """Produce a single CSV after combining all files"""
+    # Consolidate all CSV files into one object
+    result_obj = pdlib.concat([pdlib.read_csv(file) for file in list_of_files])
+    # Convert the above object into a csv file and export
+    result_obj.to_csv(file_out, index=False, encoding="utf-8")
 
 print("Before you continue, ensure you have updated config.ini")
 print("What do you want to do?")
 print("1. frontpage_to_txt")
 print("2. saved_to_csv")
+print("3. merge_csv")
 choice = input("> ")
 
 if choice == "1":
@@ -220,3 +230,19 @@ elif choice == "2":
                          password=password)
 
     saved_to_csv(reddit, limit, unsave)
+
+elif choice == "3":
+    read_config = configparser.ConfigParser()
+    read_config.read("config.ini")
+    file_path = read_config.get("merge_csv", "file_path")
+    file_out = read_config.get("merge_csv", "file_out")
+
+    # Move to the path that holds our CSV files
+    chdir(file_path)
+
+    # List all CSV files in the working dir
+    file_pattern = "csv"
+    list_of_files = [file for file in glob('*.{}'.format(file_pattern))]
+    print(list_of_files)
+
+    merge_csv(list_of_files, file_out)

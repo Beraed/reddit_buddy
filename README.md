@@ -17,6 +17,7 @@ If on windows you can also double click on main.bat
 
 frontpage_to_txt: saves site in json, csv, txt format inside data folder  
 saved_to_csv: saves user saved posts in csv format inside data folder
+merge_csv: merges all csv files from a folder into one file
 
 ## Built With
 
