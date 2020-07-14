@@ -6,6 +6,7 @@ Useful scripts for Reddit.
 Before you continue, ensure you have met the following requirements:
 * You have installed a compatible [Python](https://www.python.org/downloads/) version.  
 * You have installed a compatible [Praw](https://pypi.org/project/praw/) version.  
+* You have installed a compatible [Pandas](https://pypi.org/project/pandas/) version.  
 
 ## Start
 
@@ -21,9 +22,10 @@ merge_csv: merges all csv files from a folder into one file
 
 ## Built With
 
-* [Python 3.8.3](https://www.python.org/) - Programming Language
-* [Praw 7.1.0](https://praw.readthedocs.io/en/latest/) - Python Reddit API Wrapper
-* [VSCode](https://code.visualstudio.com/) - The text editor used
+* [Python 3.8.3](https://www.python.org/) - Programming Language  
+* [Praw 7.1.0](https://praw.readthedocs.io/en/latest/) - Reddit API Wrapper  
+* [Pandas 1.0.5](https://pandas.pydata.org/docs/) - Easy-to-use data structures and data analysis tools  
+* [VSCode](https://code.visualstudio.com/) - The text editor used  
 
 ## Acknowledgements
 
